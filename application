@@ -1,3 +1,24 @@
+from ezgame import Ezgame
+from point2d import Point2D
+
+from arm import *
+from controllers.incrementer import IncrementerController
+from controllers.jacobian import JacobianController
+
+import time
+
+FPS = 30
+
+
+# APPLICATION MODES
+JACOBIAN    = 1
+INCREMENTER = 0
+
+CURRENT_MODE = JACOBIAN
+# to avoid creating a new Point2D as (0,0) every loop, reuse this one:
+ORIGIN = Point2D()
+
+class Application:
     def __init__(self):
         # creates an ezgame application with size (800x800)
         # and sets its fps to FPS
@@ -72,3 +93,8 @@
 
     def exit(self):
         exit()
+
+
+if __name__ == '__main__':
+    app = Application()
+    app.run()
